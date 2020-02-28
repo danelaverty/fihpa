@@ -84,10 +84,14 @@ h3 {
 
 .a-box {
 	position: relative;
-	width: 100vw;
 	height: 33vh;
 	border: 1px solid black;
 	box-sizing: border-box;
+	border-left: none;
+}
+
+.scenario-container:nth-child(1) .a-box {
+	border-left: 1px solid black;
 }
 
 .paragraph {
@@ -95,6 +99,9 @@ h3 {
 }
 
 .stuff-box {
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
 	margin-top: 3px;
 	font-size: 12px;
 	border: 1px solid black;
@@ -161,18 +168,19 @@ h3 {
 	background-color: #FFC;
 }
 
-.option-bubble.level-finished {
+.option-bubble.disabled {
 	background-color: #EEF;
 	color: #AAA;
 	cursor: auto;
 }
 
 .option-name {
-	width: 100%;
+	width: 110%;
 	text-align: center;
 	position: absolute;
 	top: 50%;
-	transform: translateY(-50%);
+	transform: translate(-50%, -50%);
+	left: 50%;
 }
 
 .fihpas-chart {
@@ -181,8 +189,12 @@ h3 {
 	width: 100%;
 	left: 0;
 	background-color: #444;
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
+	border: 1px solid black;
+	border-left: none;
+}
+
+.scenario-container:nth-child(1) .fihpas-chart {
+	border-left: 1px solid black;
 }
 
 .fihpas-legend {
@@ -331,14 +343,12 @@ h3 {
 }
 
 .action-name {
-	color: black;
+	color: white;
 	position: absolute;
-	font-size: 10px;
-	background-color: #EEE;
-	border: 1px solid black;
-	padding: 2px;
-	border-radius: 2px;
+	font-size: 8px;
 	z-index: 10;
+	white-space: nowrap;
+	transform: translateX(-50%);
 }
 
 .game-pawn {
@@ -370,7 +380,7 @@ h3 {
 .view-limiter {
 	position: absolute;
 	transition: width 1s;
-	overflow: hidden;
+	/* overflow: hidden; */
 	/* background-color: orange; */
 }
 
@@ -467,7 +477,41 @@ img.stuff {
 	width: 18px;
 }
 
-.stuff-animated {
+.animated-stuff {
 	position: absolute;
-	transition: left .5s, bottom .5s;
+	transition: top .5s, right .5s, left .5s, bottom .5s;
+}
+
+.scenarios-container {
+	display: flex;
+	flex-direction: row;
+	width: 100vw;
+}
+
+.scenario-container {
+	flex: 1;
+	display: relative;
+}
+
+.scenario-dimmer {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .2);
+}
+
+.red {
+	color: red;
+}
+
+.gold-star {
+	position: absolute;
+	transform: translate(-50%, 50%);
+	width: 32px;
+	z-index: 7;
+	opacity: .6;
+}
+
+.option-icon {
+	width: 14px;
 }
